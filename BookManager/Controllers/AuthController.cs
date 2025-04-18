@@ -67,5 +67,11 @@ namespace BookManager.Controllers
 
             return RedirectToAction("Index", "Livre");
         }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
