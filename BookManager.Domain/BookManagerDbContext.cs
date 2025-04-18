@@ -8,6 +8,11 @@ namespace BookManager.Domain
         public DbSet<Utilisateur> Utilisateurs { get { return Set<Utilisateur>(); } }
         public DbSet<Livre> Livres { get { return Set<Livre>(); } }
 
+        public BookManagerDbContext()
+        {
+            Database.EnsureCreated();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookManager;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
